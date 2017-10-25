@@ -1,0 +1,5 @@
+PKG_NAME := R-bindrcpp
+URL := https://cran.r-project.org/src/contrib/bindrcpp_0.2.tar.gz
+
+
+include ../common/Makefile.common
