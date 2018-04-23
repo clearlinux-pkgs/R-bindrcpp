@@ -4,7 +4,7 @@
 #
 Name     : R-bindrcpp
 Version  : 0.2.2
-Release  : 8
+Release  : 9
 URL      : https://cran.r-project.org/src/contrib/bindrcpp_0.2.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/bindrcpp_0.2.2.tar.gz
 Summary  : An 'Rcpp' Interface to Active Bindings
