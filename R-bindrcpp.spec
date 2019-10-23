@@ -4,7 +4,7 @@
 #
 Name     : R-bindrcpp
 Version  : 0.2.2
-Release  : 23
+Release  : 24
 URL      : https://cran.r-project.org/src/contrib/bindrcpp_0.2.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/bindrcpp_0.2.2.tar.gz
 Summary  : Provides an easy way to fill an environment with active C++ function bindings.
@@ -13,11 +13,11 @@ License  : MIT
 Requires: R-bindrcpp-lib = %{version}-%{release}
 Requires: R-Rcpp
 Requires: R-bindr
-Requires: R-plogr
 BuildRequires : R-Rcpp
 BuildRequires : R-bindr
 BuildRequires : R-plogr
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
 bindrcpp
@@ -39,13 +39,13 @@ lib components for the R-bindrcpp package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552719309
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1571802356
 
 %install
-export SOURCE_DATE_EPOCH=1552719309
+export SOURCE_DATE_EPOCH=1571802356
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -74,12 +74,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  bindrcpp || :
+R CMD check --no-manual --no-examples --no-codoc bindrcpp || :
 
 
 %files
