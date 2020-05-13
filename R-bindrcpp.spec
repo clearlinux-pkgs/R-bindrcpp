@@ -4,25 +4,23 @@
 #
 Name     : R-bindrcpp
 Version  : 0.2.2
-Release  : 27
+Release  : 28
 URL      : https://cran.r-project.org/src/contrib/bindrcpp_0.2.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/bindrcpp_0.2.2.tar.gz
-Summary  : Provides an easy way to fill an environment with active C++ function bindings.
+Summary  : An 'Rcpp' Interface to Active Bindings
 Group    : Development/Tools
 License  : MIT
 Requires: R-bindrcpp-lib = %{version}-%{release}
 Requires: R-Rcpp
 Requires: R-bindr
+Requires: R-plogr
 BuildRequires : R-Rcpp
 BuildRequires : R-bindr
 BuildRequires : R-plogr
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
-bindrcpp
-========
-[![Travis-CI Build Status](https://travis-ci.org/krlmlr/bindrcpp.svg?branch=master)](https://travis-ci.org/krlmlr/bindrcpp) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/krlmlr/bindrcpp?branch=master&svg=true)](https://ci.appveyor.com/project/krlmlr/bindrcpp) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/bindrcpp)](https://cran.r-project.org/package=bindrcpp)
+that call a C++ function.
 
 %package lib
 Summary: lib components for the R-bindrcpp package.
@@ -34,21 +32,22 @@ lib components for the R-bindrcpp package.
 
 %prep
 %setup -q -c -n bindrcpp
+cd %{_builddir}/bindrcpp
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571802356
+export SOURCE_DATE_EPOCH=1589411062
 
 %install
-export SOURCE_DATE_EPOCH=1571802356
+export SOURCE_DATE_EPOCH=1589411062
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
