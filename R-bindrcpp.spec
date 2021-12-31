@@ -4,7 +4,7 @@
 #
 Name     : R-bindrcpp
 Version  : 0.2.2
-Release  : 42
+Release  : 43
 URL      : https://cran.r-project.org/src/contrib/bindrcpp_0.2.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/bindrcpp_0.2.2.tar.gz
 Summary  : An 'Rcpp' Interface to Active Bindings
@@ -39,10 +39,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1640897829
+export SOURCE_DATE_EPOCH=1640980247
 
 %install
-export SOURCE_DATE_EPOCH=1640897829
+export SOURCE_DATE_EPOCH=1640980247
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
